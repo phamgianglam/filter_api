@@ -1,6 +1,6 @@
 from uuid import UUID, uuid4
 from datetime import datetime
-from sqlalchemy.sql.sqltypes import DateTime, Integer, String, ARRAY
+from sqlalchemy.sql.sqltypes import DateTime, String, ARRAY
 from datetime import datetime
 from sqlalchemy import Column
 from sqlalchemy.dialects.postgresql import UUID as sqlUUID
@@ -19,6 +19,5 @@ class Filter(BaseModel):
     sort: str = Column(String, nullable=False)
     price: str = Column(String, nullable=True)
     date: datetime = Column(
-        DateTime(timezone=True),
-        nullable=False,
+        DateTime(timezone=True), nullable=False,
     )

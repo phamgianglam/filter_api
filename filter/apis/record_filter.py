@@ -1,11 +1,13 @@
+from typing import List
+
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi import Response
-from typing import List
+
+from sqlalchemy.exc import IntegrityError
 
 from ..model.depend import create_session
 from ..schemas import PostFilterModel, FilterModel
 from ..controller import record_filter as ctrl
-from sqlalchemy.exc import IntegrityError
 from ..utility.paging import PagingParam
 
 router = APIRouter()
@@ -19,6 +21,7 @@ async def add_filter_record(
     try:
         result = await ctrl.create_resource(series, session)
     except IntegrityError as exc:
+        print(exc)
         raise HTTPException(
             status_code=409, detail="given product is a duplicate"
         )

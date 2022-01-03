@@ -2,6 +2,7 @@ from typing import List
 from datetime import datetime
 from typing import Optional
 from uuid import UUID, uuid4
+
 from pydantic import BaseModel, Field
 
 
@@ -23,7 +24,6 @@ class PostFilterModel(BaseModel):
                 "sort": "price:asc",
                 "price": "20-50",
                 "date": "2022-01-01T13:40:40.603227",
-
             }
         }
 
