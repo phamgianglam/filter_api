@@ -6,6 +6,7 @@ from ..config import config
 engine = create_async_engine(
     config.ASYNC_DATABASE_URL, future=True, pool_pre_ping=True,
 )
+
 async_session_factory = sessionmaker(
     autocommit=False,
     autoflush=False,
